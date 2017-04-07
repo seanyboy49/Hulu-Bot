@@ -1,6 +1,7 @@
 var callSendAPI = require('./callSendAPI');
 
 function sendMovieCarousel(recipientId) {
+  console.log('inside sendMovieCarousel');
   var messageData = {
     recipient: {
       id: recipientId
