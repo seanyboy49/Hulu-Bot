@@ -19,7 +19,7 @@ function sendMeh(recipientId) {
           "content_type":"text",
           "title":"Meh...",
           "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
-        }
+        },
       ]
     }
   };
