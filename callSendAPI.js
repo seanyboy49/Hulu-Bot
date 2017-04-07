@@ -1,6 +1,8 @@
 // Grab Page Access Token from Heroku app dashboard
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
+var request = require('request');
+
 
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll
