@@ -1,3 +1,6 @@
+var request = require('request');
+
+
 // Quick Emotion Options
 function sendQuickEmotion(recipientId) {
   var messageData = {
