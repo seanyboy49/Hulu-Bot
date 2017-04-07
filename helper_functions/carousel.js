@@ -57,10 +57,10 @@ function sendMovieCarousel(recipientId) {
             title: "rift",
             subtitle: "Next-generation virtual reality",
             item_url: "https://www.oculus.com/en-us/rift/",
-            image_url: SERVER_URL + "/assets/rift.png",
+            image_url: "https://ib1.hulu.com/show_key_art/22881?size=1600x600&region=US"",
             buttons: [{
               type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
+              url: "https:www.oculus.com/en-us/rift/",
               title: "Open Web URL"
             }, {
               type: "postback",
@@ -71,7 +71,7 @@ function sendMovieCarousel(recipientId) {
             title: "touch",
             subtitle: "Your Hands, Now in VR",
             item_url: "https://www.oculus.com/en-us/touch/",
-            image_url: SERVER_URL + "/assets/touch.png",
+            image_url: "https:ib1.hulu.com/show_key_art/22881?size=1600x600&region=US",
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/touch/",
@@ -79,7 +79,7 @@ function sendMovieCarousel(recipientId) {
             }, {
               type: "postback",
               title: "Call Postback",
-              payload: "Payload for second bubble",
+              payload: "Payload for second bubble"
             }]
           }]
         }
