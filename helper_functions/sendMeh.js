@@ -12,13 +12,13 @@ function sendMeh(recipientId) {
       quick_replies: [
         {
           "content_type":"text",
-          "title":"These were great! Thanks Hulu Bot!",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
+          "title":"These were great!",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREAT"
         },
         {
           "content_type":"text",
           "title":"Meh...",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MEH"
         },
       ]
     }
