@@ -37,7 +37,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
           sendMessage(senderID, {text: "Any of these strike your fancy?"})
           sendMovieCarousel(senderID);
-          sendMeh(senderID)
+          setTimeout(sendMeh(senderID),3000);
           // sendQuickEmotion(event.sender.id)
             // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
