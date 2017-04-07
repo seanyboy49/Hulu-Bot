@@ -3,7 +3,8 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-var sendQuickEmotion = require('./sendQuickEmotion');
+var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
+var sendMovieCarousel = require('./helper_functions/carousel');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -29,7 +30,7 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
-    console.log(events);
+    console.log('In post event. Logging events.', events);
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
