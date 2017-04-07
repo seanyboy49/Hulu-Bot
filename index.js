@@ -30,12 +30,11 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
-    console.log('In post event. Logging events.', events);
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
-          sendMovieCarousel(event.sender.id);
-          // sendQuickEmotion(event.sender.id)
+          // sendMovieCarousel(event.sender.id);
+          sendQuickEmotion(event.sender.id)
             // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
     }
