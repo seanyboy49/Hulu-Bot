@@ -17,7 +17,7 @@ function sendMovieCarousel(recipientId) {
               image_url: "",
               subtitle: "Rick and Morty is a show about a sociopathic scientist.",
               item_url: "https://www.hulu.com/rick-and-morty",
-              image_url: "/public/RickandMorty.jpg",
+              image_url: "https://ib1.hulu.com/show_key_art/22881?size=1600x600&region=US",
               buttons: [
                 {
                   type: "web_url",
