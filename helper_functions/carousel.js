@@ -16,11 +16,11 @@ function sendMovieCarousel(recipientId) {
               title: "10 Cloverfield Lane",
               subtitle: "A young woman finds herself in an underground bunker with two men.",
               item_url: "https://www.hulu.com/watch/1034667",
-              image_url: "https://ib1.hulu.com/show_key_art/22881?size=1600x600&region=US",
+              image_url: "http://pogo-movies.com/wp-content/uploads/2016/03/10-cloverfield.jpg",
               buttons: [
                 {
                   type: "web_url",
-                  url: "http://pogo-movies.com/wp-content/uploads/2016/03/10-cloverfield.jpg",
+                  url: "https://www.hulu.com/watch/1034667",
                   title: "Watch this!"
                 }
               ]
