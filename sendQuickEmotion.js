@@ -1,3 +1,5 @@
+var callSendAPI = require('./callSendAPI');
+
 // Quick Emotion Options
 function sendQuickEmotion(recipientId) {
   var messageData = {
