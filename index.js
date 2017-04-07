@@ -5,6 +5,7 @@ var app = express();
 
 var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
 var sendMovieCarousel = require('./helper_functions/carousel');
+var sendMeh = require('./helper_functions/sendMeh');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -32,9 +33,11 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
+        var senderID = event.sender.id;
         if (event.message && event.message.text) {
-          sendMessage(event.sender.id, {text: "Any of these strike your fancy?"})
-          sendMovieCarousel(event.sender.id);
+          sendMessage(senderID, {text: "Any of these strike your fancy?"})
+          sendMovieCarousel(senderID);
+          sendMeh(senderID)
           // sendQuickEmotion(event.sender.id)
             // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
