@@ -33,7 +33,7 @@ app.post('/webhook', function (req, res) {
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
-          // sendMessage(event.sender.id, {text: "Any of these strike your fancy?"})
+          sendMessage(event.sender.id, {text: "Any of these strike your fancy?"})
           sendMovieCarousel(event.sender.id);
           // sendQuickEmotion(event.sender.id)
             // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
