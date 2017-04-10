@@ -6,6 +6,7 @@ var app = express();
 var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
 var sendMovieCarousel = require('./helper_functions/carousel');
 var sendMeh = require('./helper_functions/sendMeh');
+var sendTypingOn = require('./helper_functions/sendTypingOn');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -70,6 +71,7 @@ function processPostback(event) {
     var message = "One of these strike your fancy?";
     sendMessage(senderId, {text: message});
     sendMovieCarousel(senderId);
+    sendTypingOn(senderId);
     sendMeh(senderId);
   } else {
     console.log("Not Greeting");
