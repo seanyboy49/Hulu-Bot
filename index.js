@@ -69,7 +69,7 @@ function processPostback(event) {
 
   if (payload === "Greeting") {
     var message = "One of these strike your fancy?";
-    sendMessage(senderId, {text: message});
+    // sendMessage(senderId, {text: message});
     // sendMovieCarousel(senderId);
     sendMeh(senderId);
   } else {
