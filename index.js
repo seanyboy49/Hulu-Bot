@@ -56,9 +56,9 @@ function processPostback(event) {
     // any special event and send back the corresponding example
     switch(payload) {
       case 'Greeting':
-      sendMessage(senderId, {text: "One of these strike your fancy?"});
+      // sendMessage(senderId, {text: "One of these strike your fancy?"});
       // sendMovieCarousel(senderId);
-      setTimeout(sendMeh(senderId), 5000);
+      sendMeh(senderId);
       break;
 
       case 'PAYLOAD_MEH':
