@@ -10,7 +10,7 @@ var sendMeh = require('./helper_functions/sendMeh');
 var genrePrompt = require('./helper_functions/genrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
-var commitmentPrompt = require('.helper_functions/commitmentPrompt');
+var commitmentPrompt = require('/.helper_functions/commitmentPrompt');
 
 
 // express set up
