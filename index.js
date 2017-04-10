@@ -57,6 +57,8 @@ function processPostback(event) {
     switch(payload) {
       case 'Greeting':
       sendMessage(senderId, {text: "One of these strike your fancy?"});
+      sendMovieCarousel(senderId);
+      setTimeout(sendMeh(senderId), 5000);
       break;
 
       case 'PAYLOAD_MEH':
