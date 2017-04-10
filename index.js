@@ -3,11 +3,16 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
+// helper functions
 var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
 var sendMovieCarousel = require('./helper_functions/carousel');
 var sendMeh = require('./helper_functions/sendMeh');
 var genrePrompt = require('./helper_functions/genrePrompt');
+var confirmIndecision = require('./helper_functions/confirmIndecision');
+var confirmMovie = require('./helper_functions/confirmMovie');
 
+
+// express set up
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
@@ -107,6 +112,25 @@ if (quickReply) {
     case 'PAYLOAD_MEH':
     genrePrompt(senderId);
     break;
+
+    case 'PAYLOAD_INDECISION':
+    confirmIndecision(senderId);
+    break;
+
+    case 'PAYLOAD_OFFENDED':
+    commitmentPrompt(senderId);
+    break;
+
+    case 'PAYLOAD_STARTOVER':
+    genrePrompt(senderId);
+    break;
+
+    case 'PAYLOAD_MOVIE':
+    confirmMovie(senderId);
+    break;
+
+    case 'PAYLOAD_MOVIE_CHEDDAR':
+    sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89")
     }
   }
 
