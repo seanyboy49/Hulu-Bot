@@ -30,20 +30,35 @@ app.get('/webhook', function (req, res) {
 
 // handler receiving messages
 app.post('/webhook', function (req, res) {
-    var events = req.body.entry[0].messaging;
-    for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        var senderID = event.sender.id;
-        if (event.message && event.message.text) {
-          sendMessage(senderID, {text: "Any of these strike your fancy?"})
-          sendMovieCarousel(senderID);
-          // setTimeout(sendMeh(senderID),8000);
-          // sendQuickEmotion(event.sender.id)
-            // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+  // Make sure this is a page subscription
+  if (req.body.object == "page") {
+    // Iterate over each entry
+    // There may be multiple entries of batched
+    req.body.entry.forEach(function(entry) {
+      // Iterate over each messaging event
+      entry.messaging.forEach(function(event) {
+        if (event.postback) {
+          processPostback(event);
         }
-    }
+      });
+    });
+  }
     res.sendStatus(200);
 });
+
+function processPostback(event) {
+  var senderId = event.sender.id;
+  var payload = event.postback.payload;
+
+  if (payload === "Greeting") {
+
+      var message = "One of these strike your fancy?";
+      sendMessage(senderId, {text: message});
+      sendMovieCarousel(senderID)
+    });
+  }
+}
+
 
 // generic function sending messages
 function sendMessage(recipientId, message) {
