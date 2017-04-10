@@ -50,10 +50,27 @@ function processPostback(event) {
   var senderId = event.sender.id;
   var payload = event.postback.payload;
 
+  if (payload) {
+    // If we receive a postback, check its payload to see if it matches
+    // any special event and send back the corresponding example
+    switch(payload) {
+      case 'Greeting':
+      sendMessage(senderId, {text: "One of these strike your fancy?"});
+      break;
+
+      case 'PAYLOAD_MEH':
+      sendMessage(senderId, {text: "Ok, picky-pants. Let's try this another way."});
+      sendMessage(senderId, {text: "Do you want to laugh or cry?"});
+      break;
+    }
+
+  }
+
   if (payload === "Greeting") {
     var message = "One of these strike your fancy?";
     sendMessage(senderId, {text: message});
-    sendMovieCarousel(senderId)
+    sendMovieCarousel(senderId);
+    sendMeh(senderId);
   } else {
     console.log("Not Greeting");
   }

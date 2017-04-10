@@ -13,12 +13,12 @@ function sendMeh(recipientId) {
         {
           "content_type":"text",
           "title":"These were great!",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREAT"
+          "payload":"PAYLOAD_GREAT"
         },
         {
           "content_type":"text",
           "title":"Meh...",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MEH"
+          "payload":"PAYLOAD_MEH"
         },
       ]
     }
