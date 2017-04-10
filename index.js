@@ -50,9 +50,13 @@ function processPostback(event) {
   var senderId = event.sender.id;
   var payload = event.postback.payload;
 
-  var message = "One of these strike your fancy?";
-  sendMessage(senderId, {text: message});
-  sendMovieCarousel(senderID)
+  if (payload === "Greeting") {
+    var message = "One of these strike your fancy?";
+    sendMessage(senderId, {text: message});
+    sendMovieCarousel(senderId)
+  } else {
+    console.log("Not Greeting");
+  }
 }
 
 
