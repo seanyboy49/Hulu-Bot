@@ -105,7 +105,6 @@ function receivedMessage(event) {
 if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_MEH':
-    sendMessage(senderId, {text: "OK, picky-pants. Let's try this another way."});
     genrePrompt(senderId);
     break;
     }

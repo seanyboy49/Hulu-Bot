@@ -7,7 +7,7 @@ function genrePrompt(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Do you want to laugh or cry?",
+      text: "OK picky-pants. Let's try this another way. Do you want to laugh or cry?",
       metadata: "GENRE_PROMPT",
       quick_replies: [
         {
