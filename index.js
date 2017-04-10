@@ -10,6 +10,7 @@ var sendMeh = require('./helper_functions/sendMeh');
 var genrePrompt = require('./helper_functions/genrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
+var commitmentPrompt = require('.helper_functions/commitmentPrompt');
 
 
 // express set up
@@ -98,7 +99,6 @@ function receivedMessage(event) {
     senderId, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
-  var messageId = message.mid;
   var appId = message.app_id;
   var metadata = message.metadata;
 
