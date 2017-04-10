@@ -50,6 +50,7 @@ app.post('/webhook', function (req, res) {
 function processPostback(event) {
   var senderId = event.sender.id;
   var payload = event.postback.payload;
+  console.log("payload = ", payload);
 
   if (payload) {
     // If we receive a postback, check its payload to see if it matches
