@@ -55,7 +55,7 @@ function processPostback(event) {
       var message = "One of these strike your fancy?";
       sendMessage(senderId, {text: message});
       sendMovieCarousel(senderID)
-    });
+    };
   }
 }
 
