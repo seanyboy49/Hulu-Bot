@@ -57,13 +57,13 @@ function processPostback(event) {
     switch(payload) {
       case 'Greeting':
       sendMessage(senderId, {text: "One of these strike your fancy?"});
-      sendMovieCarousel(senderId);
-      // setTimeout(sendMeh(senderId), 5000);
+      // sendMovieCarousel(senderId);
+      setTimeout(sendMeh(senderId), 5000);
       break;
 
       case 'PAYLOAD_MEH':
       sendMessage(senderId, {text: "Ok, picky-pants. Let's try this another way."});
-      sendMessage(senderId, {text: "Do you want to laugh or cry?"});
+      genrePrompt(senderId);
       break;
     }
 

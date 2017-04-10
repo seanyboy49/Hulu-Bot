@@ -12,14 +12,14 @@ function sendMeh(recipientId) {
       quick_replies: [
         {
           "content_type":"text",
-          "title":"These were great!",
+          "title":"These were great! 😁",
           "payload":"PAYLOAD_GREAT"
         },
         {
           "content_type":"text",
-          "title":"Meh...",
+          "title":"Meh...😐",
           "payload":"PAYLOAD_MEH"
-        },
+        }
       ]
     }
   };
