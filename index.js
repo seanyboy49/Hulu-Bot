@@ -6,7 +6,7 @@ var app = express();
 var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
 var sendMovieCarousel = require('./helper_functions/carousel');
 var sendMeh = require('./helper_functions/sendMeh');
-var sendTypingOn = require('./helper_functions/sendTypingOn');
+var genrePrompt = require('./helper_functions/genrePrompt');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -40,6 +40,9 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.postback) {
           processPostback(event);
+        } else  {
+          console.log("Inside else statement");
+          receivedMessage(event)
         }
       });
     });
@@ -47,6 +50,7 @@ app.post('/webhook', function (req, res) {
     res.sendStatus(200);
 });
 
+// For Postback buttons, structured messages, or Get Started Buttons
 function processPostback(event) {
   var senderId = event.sender.id;
   var payload = event.postback.payload;
@@ -61,16 +65,55 @@ function processPostback(event) {
       // sendMovieCarousel(senderId);
       sendMeh(senderId);
       break;
-
-      case 'PAYLOAD_MEH':
-      sendMessage(senderId, {text: "Ok, picky-pants. Let's try this another way."});
-      genrePrompt(senderId);
-      break;
     }
+  }
+}
 
+/*
+ * Message Event
+ *
+ * This event is called when a message is sent to your page. The 'message'
+ * object format can vary depending on the kind of message that was received.
+ * Read more at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
+ *
+ * For this example, we're going to echo any text that we get. If we get some
+ * special keywords ('button', 'generic', 'receipt'), then we'll send back
+ * examples of those bubbles to illustrate the special message bubbles we've
+ * created. If we receive a message with an attachment (image, video, audio),
+ * then we'll simply confirm that we've received the attachment.
+ *
+ */
+function receivedMessage(event) {
+  var senderId = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
+
+  console.log("Received message for user %d and page %d at %d with message:",
+    senderId, recipientID, timeOfMessage);
+  console.log(JSON.stringify(message));
+
+  var messageId = message.mid;
+  var appId = message.app_id;
+  var metadata = message.metadata;
+
+  // You may get a text or attachment but not both
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
+  var quickReply = message.quick_reply;
+
+if (quickReply) {
+  switch (quickReply.payload) {
+    case 'PAYLOAD_MEH':
+    sendMessage(senderId, {text: "OK, picky-pants. Let's try this another way."});
+    genrePrompt(senderId);
+    break;
+    }
   }
 
+
 }
+
 
 
 // generic function sending messages
