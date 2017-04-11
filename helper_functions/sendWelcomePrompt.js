@@ -4,7 +4,7 @@ var callSendAPI = require('./callSendAPI');
 function sendWelcomePrompt(recipientId) {
 // get user's first name from the User Profile API and include it in Greeting
 
-var firstName = function(recipientId) {
+function firstName(recipientId) {
   request({
     url: "https://graph.facebook.com/v2.6/" + senderId,
     qs: {
