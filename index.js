@@ -12,6 +12,7 @@ var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
 var commitmentPrompt = require('./helper_functions/commitmentPrompt');
 var sendMovie = require('./helper_functions/sendMovie');
+var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 
 
 // express set up
@@ -69,9 +70,10 @@ function processPostback(event) {
     // any special event and send back the corresponding example
     switch(payload) {
       case 'Greeting':
-      sendMessage(senderId, {text: "One of these strike your fancy?"});
-      sendMovieCarousel(senderId);
-      sendTypingOn(senderId)
+      sendWelcomePrompt(senderId);
+      // sendMessage(senderId, {text: "One of these strike your fancy?"});
+      // sendMovieCarousel(senderId);
+      // sendTypingOn(senderId)
       // sendMeh(senderId);
       break;
     }
@@ -112,6 +114,10 @@ function receivedMessage(event) {
 
 if (quickReply) {
   switch (quickReply.payload) {
+    case 'PAYLOAD_SURE':
+    sendMovieCarousel(senderId);
+    break;
+
     case 'PAYLOAD_MEH':
     genrePrompt(senderId);
     break;
