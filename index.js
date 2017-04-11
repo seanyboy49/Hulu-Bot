@@ -116,6 +116,7 @@ if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
     sendMovieCarousel(senderId);
+    setTimeout(sendMeh(senderId), 5000);
     break;
 
     case 'PAYLOAD_MEH':
