@@ -73,7 +73,7 @@ function processPostback(event) {
       // sendMovieCarousel(senderId);
       sendMessage(senderId, {text: "message 1"});
       sendMessage(senderId, {text: "message 2"});
-      setTimeout(sendMessage(senderId, {text: "message 3"}), 5000);
+      // setTimeout(sendMessage(senderId, {text: "message 3"}), 5000);
       // sendMeh(senderId);
       break;
     }
