@@ -72,8 +72,8 @@ function processPostback(event) {
       // sendMessage(senderId, {text: "One of these strike your fancy?"});
       // sendMovieCarousel(senderId);
       sendMessage(senderId, {text: "message 1"});
-      // setTimeout(sendMessage(senderId, {text: "message2"}), 5000);
-      // setTimeout(sendMessage(senderId, {text: "message2"}), 10000);
+      setTimeout(sendMessage(senderId, {text: "message 2"}), 5000);
+      setTimeout(sendMessage(senderId, {text: "message 3"}), 10000);
 
       // sendMeh(senderId);
       break;
