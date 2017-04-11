@@ -116,7 +116,6 @@ function receivedMessage(event) {
     senderId, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
-  var metadata = message.metadata;
 
   // You may get a text or attachment but not both
   var messageText = message.text;
@@ -137,6 +136,10 @@ if (quickReply) {
 
     case 'PAYLOAD_GREAT':
     sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"})
+    break;
+
+    case 'PAYLOAD_KILL':
+    sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
     break;
 
     case 'PAYLOAD_INDECISION':
