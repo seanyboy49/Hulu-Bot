@@ -69,13 +69,13 @@ function processPostback(event) {
     // any special event and send back the corresponding example
     switch(payload) {
       case 'Greeting':
-      sendMessage(senderId, {text: "One of these strike your fancy?"});
-      // sendMovieCarousel(senderId);
-      sendMessage(senderId, {text: "message 1"});
-      sendMessage(senderId, {text: "message 2"});
-      sendMessage(senderId, {text: "message 3"});
+      // sendMessage(senderId, {text: "One of these strike your fancy?"});
+      sendMovieCarousel(senderId);
+      // sendMessage(senderId, {text: "message 1"});
+      // sendMessage(senderId, {text: "message 2"});
+      // sendMessage(senderId, {text: "message 3"});
 
-      // sendMeh(senderId);
+      sendMeh(senderId);
       break;
     }
   }
