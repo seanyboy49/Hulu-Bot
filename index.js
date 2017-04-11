@@ -136,11 +136,7 @@ if (quickReply) {
     break;
 
     case 'PAYLOAD_GREAT':
-    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing any one of these keywords.
-    Movie
-    TV
-    TALK TO ME! 
-    "})
+    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"})
     break;
 
     case 'PAYLOAD_INDECISION':
