@@ -115,8 +115,9 @@ function receivedMessage(event) {
 if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
+    var array_item = ["message 1", "message 2", "message 3"] //my result is a array
     sendMovieCarousel(senderId);
-    setTimeout(sendMeh(senderId), 5000);
+    sendTextMessages(senderId, array_item, 0)
     break;
 
     case 'PAYLOAD_MEH':
@@ -167,3 +168,25 @@ function sendMessage(recipientId, message) {
         }
     });
 };
+
+
+function sendTextMessages(sender, text, i) {
+    if (i < text.length) {
+        request({
+            url: 'https://graph.facebook.com/v2.6/me/messages',
+            qs: {access_token: PAGE_ACCESS_TOKEN},
+            method: 'POST',
+            json: {
+                recipient: {id:sender},
+                message: {text:text[i]},
+            }
+        }, function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            }
+            sendTextMessages(sender, text, i+1)
+        })
+    } else return
+}
