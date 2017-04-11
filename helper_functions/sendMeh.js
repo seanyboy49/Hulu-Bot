@@ -24,7 +24,7 @@ function sendMeh(recipientId) {
     }
   };
   console.log("inside sendMeh");
-  callSendAPI(messageData);
+return messageData;
 }
 
 

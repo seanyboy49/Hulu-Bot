@@ -58,7 +58,7 @@ function sendMovieCarousel(recipientId) {
     }
   };
 
-  callSendAPI(messageData);
+  return messageData;
 }
 
 /*

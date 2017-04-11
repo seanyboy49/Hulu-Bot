@@ -70,11 +70,11 @@ function processPostback(event) {
     // any special event and send back the corresponding example
     switch(payload) {
       case 'Greeting':
-      // sendWelcomePrompt(senderId);
+      sendWelcomePrompt(senderId);
       // sendMessage(senderId, {text: "One of these strike your fancy?"});
       // sendMovieCarousel(senderId);
       // sendTypingOn(senderId)
-      sendMeh(senderId);
+      // sendMeh(senderId);
       break;
     }
   }
@@ -115,8 +115,7 @@ function receivedMessage(event) {
 if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
-    var array_item = ["message 1", "message 2", "message 3"] //my result is a array
-    sendMovieCarousel(senderId);
+    var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
     sendTextMessages(senderId, array_item, 0)
     break;
 
@@ -170,16 +169,13 @@ function sendMessage(recipientId, message) {
 };
 
 
-function sendTextMessages(sender, text, i) {
+function sendTextMessages(messageData, i) {
     if (i < text.length) {
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
             qs: {access_token: PAGE_ACCESS_TOKEN},
             method: 'POST',
-            json: {
-                recipient: {id:sender},
-                message: {text:text[i]},
-            }
+            json: messageData
         }, function(error, response, body) {
             if (error) {
                 console.log('Error sending messages: ', error)
