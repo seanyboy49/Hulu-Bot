@@ -70,7 +70,7 @@ function processPostback(event) {
     switch(payload) {
       case 'Greeting':
       // sendMessage(senderId, {text: "One of these strike your fancy?"});
-      sendMovieCarousel(senderId, sendMeh(senderId));
+      // sendMovieCarousel(senderId);
       sendMessage(senderId, {text: "message 1"});
       sendMessage(senderId, {text: "message 2"});
       sendMessage(senderId, {text: "message 3"});
