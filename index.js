@@ -116,7 +116,7 @@ if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
     var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
-    sendTextMessages(senderId, array_item, 0)
+    sendTextMessages(array_item, 0)
     break;
 
     case 'PAYLOAD_MEH':
@@ -169,20 +169,20 @@ function sendMessage(recipientId, message) {
 };
 
 
-function sendTextMessages(messageData, i) {
-    if (i < text.length) {
+function sendTextMessages(array_item, i) {
+    if (i < array_item.length) {
         request({
             url: 'https://graph.facebook.com/v2.6/me/messages',
             qs: {access_token: PAGE_ACCESS_TOKEN},
             method: 'POST',
-            json: messageData
+            json: array_item[i]
         }, function(error, response, body) {
             if (error) {
                 console.log('Error sending messages: ', error)
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error)
             }
-            sendTextMessages(sender, text, i+1)
+            sendTextMessages(array_item, i+1)
         })
     } else return
 }
