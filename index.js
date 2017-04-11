@@ -116,7 +116,6 @@ function receivedMessage(event) {
     senderId, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
-  var appId = message.app_id;
   var metadata = message.metadata;
 
   // You may get a text or attachment but not both
@@ -124,6 +123,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
+// Case statements for Quick Replies
 if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
@@ -133,6 +133,14 @@ if (quickReply) {
 
     case 'PAYLOAD_MEH':
     genrePrompt(senderId);
+    break;
+
+    case 'PAYLOAD_GREAT':
+    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing any one of these keywords.
+    Movie
+    TV
+    TALK TO ME! 
+    "})
     break;
 
     case 'PAYLOAD_INDECISION':
@@ -155,6 +163,20 @@ if (quickReply) {
     sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89")
     }
   }
+
+  // if (messageText) {
+  //   var formattedMsg = messageText.toLowerCase().trim();
+  //   switch (formattedMsg) {
+  //     case "movie":
+  //     break;
+  //
+  //     case "tv":
+  //     break;
+  //
+  //
+  //
+  //   }
+  // }
 
 
 }
