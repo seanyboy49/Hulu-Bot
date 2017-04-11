@@ -1,29 +1,8 @@
 var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
-function sendWelcomePrompt(recipientId) {
+function sendWelcomePrompt(recipientId, firstName) {
 // get user's first name from the User Profile API and include it in Greeting
-
-function firstName(recipientId) {
-  request({
-    url: "https://graph.facebook.com/v2.6/" + senderId,
-    qs: {
-      access_token: process.env.PAGE_ACCESS_TOKEN,
-      fields: "first_name"
-  },
-    method: "GET"
-}, function(error, response, body) {
-  var greeting = "";
-  if (error) {
-    console.log("Error getting user's name: " +  error);
-  } else {
-    var bodyObj = JSON.parse(body);
-    name = bodyObj.first_name;
-  }
-  return name;
-});
-}
-
 
   var messageData = {
     recipient: {

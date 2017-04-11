@@ -69,7 +69,24 @@ function processPostback(event) {
     // any special event and send back the corresponding example
     switch(payload) {
       case 'Greeting':
-      sendWelcomePrompt(senderId);
+      // get user's first name from the User Profile API and include it in Greeting
+        request({
+          url: "https://graph.facebook.com/v2.6/" + senderId,
+          qs: {
+            access_token: process.env.PAGE_ACCESS_TOKEN,
+            fields: "first_name"
+        },
+          method: "GET"
+      }, function(error, response, body) {
+        var greeting = "";
+        if (error) {
+          console.log("Error getting user's name: " +  error);
+        } else {
+          var bodyObj = JSON.parse(body);
+          name = bodyObj.first_name;
+          sendWelcomePrompt(senderId, name);
+        }
+      });
       break;
     }
   }
