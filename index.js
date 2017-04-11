@@ -74,7 +74,7 @@ function processPostback(event) {
       // sendMessage(senderId, {text: "One of these strike your fancy?"});
       // sendMovieCarousel(senderId);
       // sendTypingOn(senderId)
-      // sendMeh(senderId);
+      sendMeh(senderId);
       break;
     }
   }
