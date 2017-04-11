@@ -1,6 +1,6 @@
 var callSendAPI = require('./callSendAPI');
 
-function sendMovie(recipientId, title, subtitle, item_url, image_url, callback) {
+function sendMovie(recipientId, title, subtitle, item_url, image_url) {
   console.log('inside sendMovie');
   var messageData = {
     recipient: {
@@ -32,7 +32,6 @@ function sendMovie(recipientId, title, subtitle, item_url, image_url, callback) 
   };
 
   callSendAPI(messageData);
-  callback();
 }
 
 

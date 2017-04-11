@@ -1,7 +1,7 @@
 var callSendAPI = require('./callSendAPI');
-var sendMeh 
+var sendMeh
 
-function sendMovieCarousel(recipientId) {
+function sendMovieCarousel(recipientId, callback) {
   console.log('inside sendMovieCarousel');
   var messageData = {
     recipient: {
@@ -59,7 +59,8 @@ function sendMovieCarousel(recipientId) {
   };
 
   callSendAPI(messageData);
-
+  console.log("Now calling callback function");
+  callback();
 }
 
 /*
