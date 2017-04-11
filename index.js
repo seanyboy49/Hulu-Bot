@@ -75,7 +75,7 @@ function processPostback(event) {
       sendMessage(senderId, {text: "message 2"});
       sendMessage(senderId, {text: "message 3"});
 
-      sendMeh(senderId);
+      // sendMeh(senderId);
       break;
     }
   }
