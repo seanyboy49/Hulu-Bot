@@ -47,7 +47,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.postback) {
           processPostback(event);
-          
+
         } else  {
           console.log("Inside else statement");
           receivedMessage(event)
@@ -71,7 +71,10 @@ function processPostback(event) {
       case 'Greeting':
       // sendMessage(senderId, {text: "One of these strike your fancy?"});
       // sendMovieCarousel(senderId);
-      sendMeh(senderId);
+      sendMessage(senderId, {text: "message 1"});
+      sendMessage(senderId, {text: "message 2"});
+      setTimeout(sendMessage(senderId, {text: "message 3"}), 5000);
+      // sendMeh(senderId);
       break;
     }
   }
