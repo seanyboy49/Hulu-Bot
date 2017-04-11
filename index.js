@@ -160,7 +160,11 @@ function receivedMessage(event) {
 
     case 'PAYLOAD_MOVIE_CHEDDAR':
     sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");
-    sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
+
+    setTimeout(function() {
+      sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
+    },3000)
+
     break;
 
     }
