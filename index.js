@@ -4,8 +4,7 @@ var request = require('request');
 var app = express();
 
 // helper functions
-var sendQuickEmotion = require('./helper_functions/sendQuickEmotion');
-var sendMovieCarousel = require('./helper_functions/carousel');
+var sendMovieCarousel = require('./helper_functions/sendMovieCarousel');
 var sendMeh = require('./helper_functions/sendMeh');
 var genrePrompt = require('./helper_functions/genrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
@@ -71,10 +70,6 @@ function processPostback(event) {
     switch(payload) {
       case 'Greeting':
       sendWelcomePrompt(senderId);
-      // sendMessage(senderId, {text: "One of these strike your fancy?"});
-      // sendMovieCarousel(senderId);
-      // sendTypingOn(senderId)
-      // sendMeh(senderId);
       break;
     }
   }
