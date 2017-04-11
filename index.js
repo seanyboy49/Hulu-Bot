@@ -163,6 +163,7 @@ if (quickReply) {
   };
     sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
   }
+    break;
 
   // if (messageText) {
   //   var formattedMsg = messageText.toLowerCase().trim();
