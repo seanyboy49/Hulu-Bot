@@ -7,7 +7,7 @@ function sendMeh(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Were any of these good?",
+      text: "Any of these strike your fancy?",
       metadata: "DEVELOPER_DEFINED_METADATA",
       quick_replies: [
         {
