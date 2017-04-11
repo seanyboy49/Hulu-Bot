@@ -123,7 +123,7 @@ function receivedMessage(event) {
   var quickReply = message.quick_reply;
 
 // Case statements for Quick Replies
-if (quickReply) {
+  if (quickReply) {
   switch (quickReply.payload) {
     case 'PAYLOAD_SURE':
     var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
@@ -162,23 +162,9 @@ if (quickReply) {
     sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");
     sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
     break;
+
+    }
   }
-
-  // if (messageText) {
-  //   var formattedMsg = messageText.toLowerCase().trim();
-  //   switch (formattedMsg) {
-  //     case "movie":
-  //     break;
-  //
-  //     case "tv":
-  //     break;
-  //
-  //
-  //
-  //   }
-  // }
-
-
 }
 
 
