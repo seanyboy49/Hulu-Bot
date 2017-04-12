@@ -128,7 +128,6 @@ function receivedMessage(event) {
     case 'PAYLOAD_SURE':
     var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
     sendMessage(senderId, {text: "I've got 10 options, coming in hot!"})
-    sendTypingOn(senderId);
     setTimeout(function() {
       sendTextMessages(array_item, 0)
     },3000);
