@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
 
 // Grab Page Access Token from Heroku app dashboard
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN 
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN
 
 // Server frontpage
 app.get('/', function (req, res) {
@@ -125,7 +125,7 @@ function receivedMessage(event) {
 
   if (quickReply) {
     console.log("inside quickreply");
-    processQuickReply(quickReply)
+    processQuickReply(quickReply, senderId)
   }
 
   // Check to see if the message comes from the user
@@ -142,7 +142,7 @@ function receivedMessage(event) {
   // }
 }
 
-function processQuickReply(quickReply) {
+function processQuickReply(quickReply, senderId) {
   // Case statements for Quick Replies
     switch (quickReply.payload) {
 
