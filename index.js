@@ -15,6 +15,7 @@ var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainP
 var killConversation = require('./helper_functions/killConversation');
 var sendMediaPrompt = require('./helper_functions/sendMediaPrompt');
 var sendExperienceHulu = require('./helper_functions/sendExperienceHulu');
+var sendMainstreamOrIndie = require('./helper_functions/sendMainstreamOrIndie');
 
 
 // express set up
@@ -211,7 +212,7 @@ function processQuickReply(quickReply, senderId) {
 
       case 'PAYLOAD_LIVE':
       sendMessage(senderId, {text: "Yes, live TV is still a thing. \nFrom sports and news, shows and more, see what's On Demand and streaming now."})
-      setTimeout(() => { sendExperienceHulu(senderId),1500 });
+      setTimeout(() => { sendExperienceHulu(senderId), 1500 });
       break;
 
 
