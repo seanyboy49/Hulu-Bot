@@ -1,7 +1,7 @@
 var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
-function sendMeh(recipientId) {
+function sendCarouselFeedback(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -23,10 +23,10 @@ function sendMeh(recipientId) {
       ]
     }
   };
-  console.log("inside sendMeh");
+  console.log("inside sendCarouselFeedback");
 return messageData;
 }
 
 
 
-module.exports = sendMeh;
+module.exports = sendCarouselFeedback;

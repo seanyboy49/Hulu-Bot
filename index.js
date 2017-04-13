@@ -5,7 +5,7 @@ var app = express();
 
 // helper functions
 var sendMovieCarousel = require('./helper_functions/sendMovieCarousel');
-var sendMeh = require('./helper_functions/sendMeh');
+var sendCarouselFeedback = require('./helper_functions/sendCarouselFeedback');
 var genrePrompt = require('./helper_functions/genrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
@@ -134,9 +134,8 @@ function receivedMessage(event) {
     break;
 
     // Trending or Brain Picker
-
     case 'PAYLOAD_TRENDING':
-    var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
+    var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)]
     sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
     setTimeout(function() {
       sendTextMessages(array_item, 0)
@@ -177,10 +176,13 @@ function receivedMessage(event) {
     setTimeout(function() {
       sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
     },3000)
-
     break;
 
     }
+  }
+
+  if (messageText) {
+    processTextMessage(messageText);
   }
 }
 
