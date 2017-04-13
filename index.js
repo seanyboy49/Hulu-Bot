@@ -12,6 +12,7 @@ var confirmMovie = require('./helper_functions/confirmMovie');
 var commitmentPrompt = require('./helper_functions/commitmentPrompt');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
+var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
 
 
 // express set up
@@ -45,11 +46,9 @@ app.post('/webhook', function (req, res) {
     req.body.entry.forEach(function(entry) {
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
-        if (event.postback) {
+        if (event.postback) { // Get Started
           processPostback(event);
-
         } else  {
-          console.log("Inside else statement");
           receivedMessage(event)
         }
       });
@@ -62,7 +61,6 @@ app.post('/webhook', function (req, res) {
 function processPostback(event) {
   var senderId = event.sender.id;
   var payload = event.postback.payload;
-  console.log("payload = ", payload);
 
   if (payload) {
     // If we receive a postback, check its payload to see if it matches
@@ -125,13 +123,27 @@ function receivedMessage(event) {
 // Case statements for Quick Replies
   if (quickReply) {
   switch (quickReply.payload) {
+
+    // Watch something prompt
     case 'PAYLOAD_SURE':
+    sendTrendingOrBrainPicker(senderId);
+    break;
+
+    case 'PAYLOAD_KILL':
+    sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
+    break;
+
+    // Trending or Brain Picker
+
+    case 'PAYLOAD_TRENDING':
     var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)] //my result is a array
-    sendMessage(senderId, {text: "I've got 10 options, coming in hot!"})
+    sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
     setTimeout(function() {
       sendTextMessages(array_item, 0)
     },3000);
     break;
+
+    case 'PAYLOAD_BRAINPICKER':
 
     case 'PAYLOAD_MEH':
     genrePrompt(senderId);
@@ -141,9 +153,7 @@ function receivedMessage(event) {
     sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"})
     break;
 
-    case 'PAYLOAD_KILL':
-    sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
-    break;
+
 
     case 'PAYLOAD_INDECISION':
     confirmIndecision(senderId);
