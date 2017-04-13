@@ -26,7 +26,6 @@ function sendWelcomePrompt(recipientId, firstName) {
     }
   };
   callSendAPI(messageData);
-  console.log("inside sendWelcomePrompt");
 }
 
 

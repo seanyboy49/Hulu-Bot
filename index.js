@@ -13,6 +13,7 @@ var commitmentPrompt = require('./helper_functions/commitmentPrompt');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
+var
 
 
 // express set up
@@ -111,7 +112,6 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
-  var isEcho = message.is_echo;
 
   console.log("Received message for user %d and page %d at %d with message:",
     senderId, recipientID, timeOfMessage);
@@ -128,19 +128,6 @@ function receivedMessage(event) {
     processQuickReply(quickReply, senderId)
   }
 
-  // Check to see if the message comes from the user
-  // if (!isEcho) {
-  //   console.log("inside !isEcho");
-  //   if (quickReply) {
-  //     console.log("inside quickreply");
-  //     processQuickReply(quickReply)
-  //   } else if (messageText) {
-  //     console.log("inside messageText");
-  //     processMessageText(messageText)
-  //   }
-  //   console.log("Received echo for message %s", message);
-  // }
-}
 
 function processQuickReply(quickReply, senderId) {
   // Case statements for Quick Replies
@@ -152,7 +139,7 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       case 'PAYLOAD_KILL':
-      sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
+      killConversation(senderId);
       break;
 
       // Trending or Brain Picker
@@ -174,7 +161,6 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       case 'PAYLOAD_GREAT':
-      sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"});
       killConversation(senderId);
       break;
 

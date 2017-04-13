@@ -25,7 +25,6 @@ function sendTrendingOrBrainPicker(recipientId) {
       ]
     }
   };
-  console.log("inside trending or brain picker");
   callSendAPI(messageData);
 }
 
