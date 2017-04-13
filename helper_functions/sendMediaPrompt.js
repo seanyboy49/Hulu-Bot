@@ -16,23 +16,23 @@ function sendMediaPrompt(recipientId, genre) {
       id: recipientId
     },
     message: {
-      text: `${validationMessages[genre]} \nBut now we have to talk about commitment. How much time do you have?`,
-      metadata: "GENRE_PROMPT",
+      text: `${validationMessages[genre]} \nNow how about format?`,
+      metadata: "MEDIA_PROMPT",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Not much 📺",
+          "title":"TV 📺",
           "payload":"PAYLOAD_TV"
         },
         {
           "content_type":"text",
-          "title":"I've got time 🎬",
+          "title":"Movie 🎬",
           "payload":"PAYLOAD_MOVIE"
         },
         {
           "content_type":"text",
-          "title":"Uh, commitment? 😅",
-          "payload":"PAYLOAD_TREPIDATION"
+          "title":"Live 📰 🏀 ⚾",
+          "payload":"PAYLOAD_LIVE"
         }
       ]
     }

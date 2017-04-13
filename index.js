@@ -209,15 +209,12 @@ function processQuickReply(quickReply, senderId) {
       sendMainstreamOrIndie(senderId, "tv");
       break;
 
-      case 'PAYLOAD_TREPIDATION':
+      case 'PAYLOAD_LIVE':
       sendMessage(senderId, {text: "Yes, live TV is still a thing. \nFrom sports and news, shows and more, see what's On Demand and streaming now."})
       setTimeout(() => { sendExperienceHulu(senderId),1500 });
       break;
 
 
-      case 'PAYLOAD_OFFENDED':
-      commitmentPrompt(senderId);
-      break;
 
       case 'PAYLOAD_STARTOVER':
       genrePrompt(senderId);
