@@ -1,5 +1,5 @@
 // Grab Page Access Token from Heroku app dashboard
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN || "EAAasPUiqryMBAMAEL1tHCU3jmxDvITv0pXGIe1yDW9nq4IxTMnqH0nP2uw2ICQQDHOZC6Ot8iDsW1yVtZAIIGNChdaKPo55v7As12Xj44dYYpbc2L0ZBMrv2KVRgdHIbVbH3RJzL2dvKkrnT6NKoOMZB1pAJcjIZAbQ0eJYT0tQZDZD";
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 var request = require('request');
 
