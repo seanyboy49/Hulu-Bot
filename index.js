@@ -62,6 +62,9 @@ app.post('/webhook', function (req, res) {
     res.sendStatus(200);
 });
 
+// Declare a name variable globally
+var name
+
 // For Postback buttons, structured messages, or Get Started Buttons
 function processPostback(event) {
   var senderId = event.sender.id;
@@ -219,13 +222,13 @@ function processQuickReply(quickReply, senderId) {
       case 'PAYLOAD_MAINSTREAM':
       userData.preference="mainstream";
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
-      setTimeout(() => { cheesePicker(senderid) });
+      setTimeout(() => { cheesePicker(senderId) });
       break;
 
       case 'PAYLOAD_INDIE':
       userData.preference="indie";
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
-      setTimeout(() => { cheesePicker(senderid) });
+      setTimeout(() => { cheesePicker(senderId) });
       break;
 
 
@@ -248,7 +251,7 @@ function processMessageText(messageText, senderId) {
   switch(formattedMsg) {
 
     case 'start over':
-    sendWelcomePrompt(senderId, "Sean")
+    sendWelcomePrompt(senderId, name)
     break;
   }
 }
