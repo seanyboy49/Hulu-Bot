@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
 
 // Grab Page Access Token from Heroku app dashboard
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN || "EAAasPUiqryMBAMAEL1tHCU3jmxDvITv0pXGIe1yDW9nq4IxTMnqH0nP2uw2ICQQDHOZC6Ot8iDsW1yVtZAIIGNChdaKPo55v7As12Xj44dYYpbc2L0ZBMrv2KVRgdHIbVbH3RJzL2dvKkrnT6NKoOMZB1pAJcjIZAbQ0eJYT0tQZDZD";
 
 // Server frontpage
 app.get('/', function (req, res) {
@@ -121,18 +121,23 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  // Check to see if the message comes from the user
-  if (!isEcho) {
-    console.log("inside !isEcho");
-    if (quickReply) {
-      console.log("inside quickreply");
-      processQuickReply(quickReply)
-    } else if (messageText) {
-      console.log("inside messageText");
-      processMessageText(messageText)
-    }
-    console.log("Received echo for message %s", message);
+  if (quickReply) {
+    console.log("inside quickreply");
+    processQuickReply(quickReply)
   }
+
+  // Check to see if the message comes from the user
+  // if (!isEcho) {
+  //   console.log("inside !isEcho");
+  //   if (quickReply) {
+  //     console.log("inside quickreply");
+  //     processQuickReply(quickReply)
+  //   } else if (messageText) {
+  //     console.log("inside messageText");
+  //     processMessageText(messageText)
+  //   }
+  //   console.log("Received echo for message %s", message);
+  // }
 }
 
 function processQuickReply(quickReply) {
