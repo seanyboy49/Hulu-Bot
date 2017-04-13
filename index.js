@@ -84,7 +84,9 @@ function processPostback(event) {
         } else {
           var bodyObj = JSON.parse(body);
           name = bodyObj.first_name;
-          sendWelcomePrompt(senderId, name);
+          // sendWelcomePrompt(senderId, name);
+          sendTrendingOrBrainPicker(senderId);
+
         }
       });
       break;
