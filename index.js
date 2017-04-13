@@ -13,7 +13,7 @@ var commitmentPrompt = require('./helper_functions/commitmentPrompt');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
-var
+var killConversation = require('./helper_functions/killConversation');
 
 
 // express set up
