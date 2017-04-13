@@ -93,6 +93,9 @@ function processPostback(event) {
   }
 }
 
+// Let's save user input data
+var userData = {};
+
 /*
  * Message Event
  *
@@ -159,7 +162,7 @@ function processQuickReply(quickReply, senderId) {
       sendGenrePrompt(senderId);
       break;
 
-      // Carousel Feedback
+      // Carousel Results Feedback
       case 'PAYLOAD_MEH':
       sendGenrePrompt(senderId);
       break;
@@ -168,11 +171,32 @@ function processQuickReply(quickReply, senderId) {
       killConversation(senderId);
       break;
 
-
-
-      case 'PAYLOAD_INDECISION':
-      confirmIndecision(senderId);
+      // Genre Prompt Feedback
+      case 'PAYLOAD_COMEDY':
+      userData.genre = "comedy";
+      sendMediaPrompt(senderId);
       break;
+
+      case 'PAYLOAD_DRAMA':
+      userData.genre="drama"
+      sendMediaPrompt(senderId)
+      break;
+
+      case 'PAYLOAD_ACTION':
+      userData.genre="action"
+      sendMediaPrompt(senderId)
+      break;
+
+      case 'PAYLOAD_DOCUMENTARY':
+      userData.genre="documentary"
+      sendMediaPrompt(senderId)
+      break;
+
+      case 'PAYLOAD_FOREIGN':
+      userData.genre="foreign"
+      sendMediaPrompt(senderId)
+      break;
+
 
       case 'PAYLOAD_OFFENDED':
       commitmentPrompt(senderId);

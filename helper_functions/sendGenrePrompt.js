@@ -7,24 +7,34 @@ function sendGenrePrompt(recipientId) {
       id: recipientId
     },
     message: {
-      text: "OK picky-pants. Let's try this another way. Do you want to laugh or cry?",
+      text: "OK picky-pants. Let's get inside that noggin. What are you in the mood for?",
       metadata: "GENRE_PROMPT",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Laugh 😂",
-          "payload":"PAYLOAD_LAUGH"
+          "title":"Comedy 😂",
+          "payload":"PAYLOAD_COMEDY"
         },
         {
           "content_type":"text",
-          "title":"Cry 😭",
-          "payload":"PAYLOAD_CRY"
+          "title":"Drama 😭",
+          "payload":"PAYLOAD_DRAMA"
         },
         {
           "content_type":"text",
-          "title":"I'm not sure...🤔",
-          "payload":"PAYLOAD_INDECISION"
-        }
+          "title":"Action 🤔",
+          "payload":"PAYLOAD_ACTION"
+        },
+        {
+          "content_type":"text",
+          "title":"Documentary 🤓",
+          "payload":"PAYLOAD_DOCUMENTARY"
+        },
+        {
+          "content_type":"text",
+          "title":"Foreign 🗺️ ",
+          "payload":"PAYLOAD_FOREIGN"
+        },
       ]
     }
   };

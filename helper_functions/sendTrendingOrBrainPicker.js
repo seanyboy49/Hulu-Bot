@@ -14,12 +14,12 @@ function sendTrendingOrBrainPicker(recipientId) {
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Let's see what's trending.",
+          "title":"Trending! 🔥",
           "payload":"PAYLOAD_TRENDING"
         },
         {
           "content_type":"text",
-          "title":"Pick my brain!",
+          "title":"Pick my brain! ⛏️",
           "payload":"PAYLOAD_BRAINPICKER"
         }
       ]
