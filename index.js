@@ -47,8 +47,10 @@ app.post('/webhook', function (req, res) {
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
         if (event.postback) { // Get Started
+          console.log("inside postback");
           processPostback(event);
         } else  {
+          console.log("inside receivedMessage");
           receivedMessage(event)
         }
       });
