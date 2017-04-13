@@ -7,7 +7,11 @@ function killConversation(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Hope this one strikes your fancy. Otherwise, you can type start over, movie or tv."
+      text: "Tell me things like the following: 
+        The name of an actor
+        Your favorite TV show or movie
+        A movie or TV genre
+        Tell me a joke!"
     }
   };
 return messageData;

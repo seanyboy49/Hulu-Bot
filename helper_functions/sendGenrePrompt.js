@@ -1,7 +1,7 @@
 var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
-function genrePrompt(recipientId) {
+function sendGenrePrompt(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -33,4 +33,4 @@ function genrePrompt(recipientId) {
 
 
 
-module.exports = genrePrompt;
+module.exports = sendGenrePrompt;

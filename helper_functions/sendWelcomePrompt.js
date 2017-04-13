@@ -9,7 +9,7 @@ function sendWelcomePrompt(recipientId, firstName) {
       id: recipientId
     },
     message: {
-      text: `Hey there, ${firstName}. You look bored. Wanna watch something?`,
+      text: `Hey there, ${firstName}. You look bored. Wanna watch \n something?`,
       metadata: "DEVELOPER_DEFINED_METADATA",
       quick_replies: [
         {

@@ -6,7 +6,7 @@ var app = express();
 // helper functions
 var sendMovieCarousel = require('./helper_functions/sendMovieCarousel');
 var sendCarouselFeedback = require('./helper_functions/sendCarouselFeedback');
-var genrePrompt = require('./helper_functions/genrePrompt');
+var sendGenrePrompt = require('./helper_functions/sendGenrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
 var commitmentPrompt = require('./helper_functions/commitmentPrompt');
@@ -135,7 +135,7 @@ function receivedMessage(event) {
 
     // Trending or Brain Picker
     case 'PAYLOAD_TRENDING':
-    var array_item = [sendMovieCarousel(senderId), sendMeh(senderId)]
+    var array_item = [sendMovieCarousel(senderId), sendCarouselFeedback(senderId)]
     sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
     setTimeout(function() {
       sendTextMessages(array_item, 0)
@@ -143,13 +143,17 @@ function receivedMessage(event) {
     break;
 
     case 'PAYLOAD_BRAINPICKER':
+    sendGenrePrompt(senderId);
+    break;
 
+    // Carousel Feedback
     case 'PAYLOAD_MEH':
-    genrePrompt(senderId);
+    sendGenrePrompt(senderId);
     break;
 
     case 'PAYLOAD_GREAT':
-    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"})
+    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"});
+    killConversation(senderId,);
     break;
 
 
