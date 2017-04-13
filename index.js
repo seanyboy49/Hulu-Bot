@@ -199,7 +199,7 @@ function processQuickReply(quickReply, senderId) {
 
 function processMessageText(messageText, senderId) {
   var formattedMsg = messageText.toLowerCase().trim();
-  switch(messageText) {
+  switch(formattedMsg) {
 
     case 'start over':
     sendWelcomePrompt(senderId, "Sean")
