@@ -9,12 +9,12 @@ var sendCarouselFeedback = require('./helper_functions/sendCarouselFeedback');
 var sendGenrePrompt = require('./helper_functions/sendGenrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
 var confirmMovie = require('./helper_functions/confirmMovie');
-var commitmentPrompt = require('./helper_functions/commitmentPrompt');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
 var killConversation = require('./helper_functions/killConversation');
 var sendMediaPrompt = require('./helper_functions/sendMediaPrompt');
+var sendExperienceHulu = require('./helper_functions/sendExperienceHulu');
 
 
 // express set up
@@ -154,7 +154,7 @@ function processQuickReply(quickReply, senderId) {
       case 'PAYLOAD_TRENDING':
       var array_item = [sendMovieCarousel(senderId), sendCarouselFeedback(senderId)]
       sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
-      setTimeout(function() {
+      setTimeout(()=> {
         sendTextMessages(array_item, 0)
       },3000);
       break;
@@ -196,6 +196,22 @@ function processQuickReply(quickReply, senderId) {
       case 'PAYLOAD_FOREIGN':
       userData.genre="foreign"
       sendMediaPrompt(senderId, "foreign")
+      break;
+
+      //  Media Prompt Feedback
+      case 'PAYLOAD_MOVIE':
+      userData.media="movie"
+      sendMainstreamOrIndie(senderId, "movie");
+      break;
+
+      case 'PAYLOAD_TV':
+      userData.media="tv"
+      sendMainstreamOrIndie(senderId, "tv");
+      break;
+
+      case 'PAYLOAD_TREPIDATION':
+      sendMessage(senderId, {text: "Yes, live TV is still a thing. \nFrom sports and news, shows and more, see what's On Demand and streaming now."})
+      setTimeout(() => { sendExperienceHulu(senderId),1500 });
       break;
 
 

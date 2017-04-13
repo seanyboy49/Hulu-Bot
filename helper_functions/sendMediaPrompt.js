@@ -21,29 +21,19 @@ function sendMediaPrompt(recipientId, genre) {
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Comedy 😂",
-          "payload":"PAYLOAD_COMEDY"
+          "title":"Not much 📺",
+          "payload":"PAYLOAD_TV"
         },
         {
           "content_type":"text",
-          "title":"Drama 😭",
-          "payload":"PAYLOAD_DRAMA"
+          "title":"I've got time 🎬",
+          "payload":"PAYLOAD_MOVIE"
         },
         {
           "content_type":"text",
-          "title":"Action 🤔",
-          "payload":"PAYLOAD_ACTION"
-        },
-        {
-          "content_type":"text",
-          "title":"Documentary 🤓",
-          "payload":"PAYLOAD_DOCUMENTARY"
-        },
-        {
-          "content_type":"text",
-          "title":"Foreign 🗺️ ",
-          "payload":"PAYLOAD_FOREIGN"
-        },
+          "title":"Uh, commitment? 😅",
+          "payload":"PAYLOAD_TREPIDATION"
+        }
       ]
     }
   };
