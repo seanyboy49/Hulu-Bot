@@ -109,6 +109,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+  var isEcho = message.is_echo;
 
   console.log("Received message for user %d and page %d at %d with message:",
     senderId, recipientID, timeOfMessage);
@@ -120,76 +121,81 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-// Case statements for Quick Replies
-  if (quickReply) {
-  switch (quickReply.payload) {
-
-    // Watch something prompt
-    case 'PAYLOAD_SURE':
-    sendTrendingOrBrainPicker(senderId);
-    break;
-
-    case 'PAYLOAD_KILL':
-    sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
-    break;
-
-    // Trending or Brain Picker
-    case 'PAYLOAD_TRENDING':
-    var array_item = [sendMovieCarousel(senderId), sendCarouselFeedback(senderId)]
-    sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
-    setTimeout(function() {
-      sendTextMessages(array_item, 0)
-    },3000);
-    break;
-
-    case 'PAYLOAD_BRAINPICKER':
-    sendGenrePrompt(senderId);
-    break;
-
-    // Carousel Feedback
-    case 'PAYLOAD_MEH':
-    sendGenrePrompt(senderId);
-    break;
-
-    case 'PAYLOAD_GREAT':
-    sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"});
-    killConversation(senderId);
-    break;
-
-
-
-    case 'PAYLOAD_INDECISION':
-    confirmIndecision(senderId);
-    break;
-
-    case 'PAYLOAD_OFFENDED':
-    commitmentPrompt(senderId);
-    break;
-
-    case 'PAYLOAD_STARTOVER':
-    genrePrompt(senderId);
-    break;
-
-    case 'PAYLOAD_MOVIE':
-    confirmMovie(senderId);
-    break;
-
-    case 'PAYLOAD_MOVIE_CHEDDAR':
-    sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");
-
-    setTimeout(function() {
-      sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
-    },3000)
-    break;
-
+  // Check to see if the message comes from the user
+  if (!isEcho) {
+    if (quickReply) {
+      processQuickReply(quickReply)
+    } else if (messageText) {
+      processMessageText(messageText)
     }
-  }
-
-  if (messageText) {
-    processTextMessage(messageText);
+    console.log("Received echo for message %s", message);
   }
 }
 
+function processQuickReply(quickReply) {
+  // Case statements for Quick Replies
+    switch (quickReply.payload) {
+
+      // Watch something prompt
+      case 'PAYLOAD_SURE':
+      sendTrendingOrBrainPicker(senderId);
+      break;
+
+      case 'PAYLOAD_KILL':
+      sendMessage(senderId, { text: "Fine! I'll just watch TV by myself. But if change your mind, try typing movie or tv."})
+      break;
+
+      // Trending or Brain Picker
+      case 'PAYLOAD_TRENDING':
+      var array_item = [sendMovieCarousel(senderId), sendCarouselFeedback(senderId)]
+      sendMessage(senderId, {text: "I've got 5 options, coming in hot!"})
+      setTimeout(function() {
+        sendTextMessages(array_item, 0)
+      },3000);
+      break;
+
+      case 'PAYLOAD_BRAINPICKER':
+      sendGenrePrompt(senderId);
+      break;
+
+      // Carousel Feedback
+      case 'PAYLOAD_MEH':
+      sendGenrePrompt(senderId);
+      break;
+
+      case 'PAYLOAD_GREAT':
+      sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"});
+      killConversation(senderId);
+      break;
+
+
+
+      case 'PAYLOAD_INDECISION':
+      confirmIndecision(senderId);
+      break;
+
+      case 'PAYLOAD_OFFENDED':
+      commitmentPrompt(senderId);
+      break;
+
+      case 'PAYLOAD_STARTOVER':
+      genrePrompt(senderId);
+      break;
+
+      case 'PAYLOAD_MOVIE':
+      confirmMovie(senderId);
+      break;
+
+      case 'PAYLOAD_MOVIE_CHEDDAR':
+      sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");
+
+      setTimeout(function() {
+        sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
+      },3000)
+      break;
+
+      }
+}
 
 
 // generic function sending messages
