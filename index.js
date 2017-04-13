@@ -153,7 +153,7 @@ function receivedMessage(event) {
 
     case 'PAYLOAD_GREAT':
     sendMessage(senderId, { text: "Awesome! If you need another suggestion in the future, or just feel like chatting, try typing movie or tv!"});
-    killConversation(senderId,);
+    killConversation(senderId);
     break;
 
 
