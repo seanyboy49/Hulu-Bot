@@ -8,7 +8,7 @@ var sendMovieCarousel = require('./helper_functions/sendMovieCarousel');
 var sendCarouselFeedback = require('./helper_functions/sendCarouselFeedback');
 var sendGenrePrompt = require('./helper_functions/sendGenrePrompt');
 var confirmIndecision = require('./helper_functions/confirmIndecision');
-var confirmMovie = require('./helper_functions/confirmMovie');
+var cheesePicker = require('./helper_functions/cheesePicker');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
@@ -215,15 +215,22 @@ function processQuickReply(quickReply, senderId) {
       setTimeout(() => { sendExperienceHulu(senderId), 1500 });
       break;
 
-
-
-      case 'PAYLOAD_STARTOVER':
-      genrePrompt(senderId);
+      // Mainstream or Indie Prompt Feedback
+      case 'PAYLOAD_MAINSTREAM':
+      userData.preference="mainstream";
+      sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
+      setTimeout(() => { cheesePicker(senderid) });
       break;
 
-      case 'PAYLOAD_MOVIE':
-      confirmMovie(senderId);
+      case 'PAYLOAD_INDIE':
+      userData.preference="indie";
+      sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
+      setTimeout(() => { cheesePicker(senderid) });
       break;
+
+
+
+
 
       case 'PAYLOAD_MOVIE_CHEDDAR':
       sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");

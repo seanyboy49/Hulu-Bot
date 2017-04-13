@@ -1,13 +1,13 @@
 var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
-function confirmMovie(recipientId) {
+function cheesePicker(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Great, so let's go with a movie. It's raining, you don't need to go outside anyway. I just need one more thing. Pick a cheese. 🧀",
+      text: "Pick a cheese. 🧀",
       metadata: "CONFIRM_MOVIE",
       quick_replies: [
         {
@@ -43,4 +43,4 @@ function confirmMovie(recipientId) {
 
 
 
-module.exports = confirmMovie;
+module.exports = cheesePicker;
