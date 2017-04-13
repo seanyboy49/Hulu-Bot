@@ -127,6 +127,7 @@ function receivedMessage(event) {
     console.log("inside quickreply");
     processQuickReply(quickReply, senderId)
   }
+}
 
 
 function processQuickReply(quickReply, senderId) {
