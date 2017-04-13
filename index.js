@@ -175,27 +175,27 @@ function processQuickReply(quickReply, senderId) {
       // Genre Prompt Feedback
       case 'PAYLOAD_COMEDY':
       userData.genre = "comedy";
-      sendMediaPrompt(senderId);
+      sendMediaPrompt(senderId, "comedy");
       break;
 
       case 'PAYLOAD_DRAMA':
       userData.genre="drama"
-      sendMediaPrompt(senderId)
+      sendMediaPrompt(senderId, "drama")
       break;
 
       case 'PAYLOAD_ACTION':
       userData.genre="action"
-      sendMediaPrompt(senderId)
+      sendMediaPrompt(senderId, "action")
       break;
 
       case 'PAYLOAD_DOCUMENTARY':
       userData.genre="documentary"
-      sendMediaPrompt(senderId)
+      sendMediaPrompt(senderId, "documentary")
       break;
 
       case 'PAYLOAD_FOREIGN':
       userData.genre="foreign"
-      sendMediaPrompt(senderId)
+      sendMediaPrompt(senderId, "foreign")
       break;
 
 
