@@ -14,6 +14,7 @@ var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
 var sendTrendingOrBrainPicker = require('./helper_functions/sendTrendingOrBrainPicker');
 var killConversation = require('./helper_functions/killConversation');
+var sendMediaPrompt = require('./helper_functions/sendMediaPrompt');
 
 
 // express set up
