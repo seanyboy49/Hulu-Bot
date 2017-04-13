@@ -7,7 +7,7 @@ function killConversation(recipientId) {
       id: recipientId
     },
     message: {
-      text: "If you need another suggestion in the future, or just feel liek chatting, message me at any time. \n Tell me things like the following: \n \n The name of an actor/actress \n Your favorite TV show or movie \n A movie or TV genre \n Tell me a joke!"
+      text: "If you need another suggestion in the future, or just feel like chatting, message me at any time. \nTell me things like the following: \n \nThe name of an actor/actress \nYour favorite TV show or movie \nA movie or TV genre \nTell me a joke!"
     }
   };
   callSendAPI(messageData);

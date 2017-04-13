@@ -126,6 +126,9 @@ function receivedMessage(event) {
   if (quickReply) {
     console.log("inside quickreply");
     processQuickReply(quickReply, senderId)
+  } else if (messageText) {
+    console.log("inside messageText");
+    processMessageText(messageText, senderId);
   }
 }
 
@@ -192,6 +195,16 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       }
+}
+
+function processMessageText(messageText, senderId) {
+  var formattedMsg = messageText.toLowerCase().trim();
+  switch(messageText) {
+
+    case 'start over':
+    sendWelcomePrompt(senderId, "Sean")
+    break;
+  }
 }
 
 
