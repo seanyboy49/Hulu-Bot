@@ -123,9 +123,12 @@ function receivedMessage(event) {
 
   // Check to see if the message comes from the user
   if (!isEcho) {
+    console.log("inside !isEcho");
     if (quickReply) {
+      console.log("inside quickreply");
       processQuickReply(quickReply)
     } else if (messageText) {
+      console.log("inside messageText");
       processMessageText(messageText)
     }
     console.log("Received echo for message %s", message);
