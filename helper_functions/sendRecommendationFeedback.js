@@ -1,23 +1,23 @@
 var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
-function cheesePicker(recipientId) {
+function sendRecommendationFeedback(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Pick a cheese. 🧀",
-      metadata: "CONFIRM_CHEESEPICKER,
+      text: "How was that?",
+      metadata: "RECOMMENDATION_FEEDBACK",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Cheddar",
-          "payload":"PAYLOAD_CHEESE"
+          "title":"Thanks hulu-bot!",
+          "payload":"PAYLOAD_KILL"
         },
         {
           "content_type":"text",
-          "title":"Stilton",
+          "title":"Give me another one!",
           "payload":"PAYLOAD_CHEESE"
         }
       ]
@@ -28,4 +28,4 @@ function cheesePicker(recipientId) {
 
 
 
-module.exports = cheesePicker;
+module.exports = sendRecommendationFeedback;

@@ -16,6 +16,7 @@ var sendMediaPrompt = require('./helper_functions/sendMediaPrompt');
 var sendExperienceHulu = require('./helper_functions/sendExperienceHulu');
 var sendMainstreamOrIndie = require('./helper_functions/sendMainstreamOrIndie');
 var sendRecommendation = require('./helper_functions/sendRecommendation');
+var sendRecommendationFeedback = require('./helper_functions/sendRecommendationFeedback');
 
 
 // express set up
@@ -164,7 +165,8 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       case 'PAYLOAD_BRAINPICKER':
-      sendGenrePrompt(senderId);
+      sendMessage(senderId, { text: "Ok, picky-pants. Let's get inside that noggin!"})
+      setTimeout(() => { sendGenrePrompt(senderId) }, 1000);
       break;
 
       // Carousel Results Feedback
@@ -221,23 +223,28 @@ function processQuickReply(quickReply, senderId) {
       // Mainstream or Indie Prompt Feedback
       case 'PAYLOAD_MAINSTREAM':
       userData.preference="mainstream";
+      userData.cheese=0;
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
       setTimeout(() => { cheesePicker(senderId) });
       break;
 
       case 'PAYLOAD_INDIE':
       userData.preference="indie";
+      userData.cheese=0;
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
       setTimeout(() => { cheesePicker(senderId) });
       break;
 
+      // Pass movieData object into sendRecommendation function
       case 'PAYLOAD_CHEESE':
-      console.log("userData before recommendation", userData);
-      sendRecommendation(senderId, userData)
-      userData = {};
-      console.log("userData after recommendation", userData);
+      if (!userData.cheese === 2) {
+        sendRecommendation(senderId, userData);
+        setTimeout(()=> {sendRecommendationFeedback(senderId)} , 1500);
+      } else {
+        sendMessage(senderId, { text: "Hmm. Let's start over, shall we?"})
+        setTimeout(()=> {sendGenrePrompt(senderId)} , 1500)
+      }
       break;
-
       }
 }
 

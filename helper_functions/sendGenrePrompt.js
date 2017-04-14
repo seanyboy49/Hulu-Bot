@@ -7,7 +7,7 @@ function sendGenrePrompt(recipientId) {
       id: recipientId
     },
     message: {
-      text: "OK picky-pants. Let's get inside that noggin. What are you in the mood for?",
+      text: "What are you in the mood for?",
       metadata: "GENRE_PROMPT",
       quick_replies: [
         {

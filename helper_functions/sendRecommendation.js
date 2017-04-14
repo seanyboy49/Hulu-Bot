@@ -3,7 +3,7 @@ var callSendAPI = require('./callSendAPI');
 function sendRecommendation(recipientId, userData) {
 
 // Grab values from userData object with ES6 destructuring
-var { genre, media, preference } = userData;
+var { genre, media, preference, cheese } = userData;
 console.log({genre});
 
 var comedy = {
@@ -134,7 +134,7 @@ var drama = {
 }
 
 // Grab a single entry from the drama object
-var suggestionArray = drama[media][preference][0];
+var suggestionArray = drama[media][preference][cheese];
 
 // Destructure vars from suggestion to be used in messageData
 var { title, subtitle, item_url, image_url } = suggestion;
@@ -168,7 +168,8 @@ var { title, subtitle, item_url, image_url } = suggestion;
       }
     }
   };
-
+  // Increment cheese by 1 after function is called the first time
+  userData.cheese += 1
   callSendAPI(messageData);
 }
 
