@@ -13,27 +13,12 @@ function cheesePicker(recipientId) {
         {
           "content_type":"text",
           "title":"Cheddar",
-          "payload":"PAYLOAD_MOVIE_CHEDDAR"
+          "payload":"PAYLOAD_CHEESE"
         },
         {
           "content_type":"text",
           "title":"Stilton",
-          "payload":"PAYLOAD_MOVIE_STILTON"
-        },
-        {
-          "content_type":"text",
-          "title":"Mozzarella",
-          "payload":"PAYLOAD_MOVIE_MOZZARELLA"
-        },
-        {
-          "content_type":"text",
-          "title":"Ew, cheese",
-          "payload":"PAYLOAD_MOVIE_EW"
-        },
-        {
-          "content_type":"text",
-          "title":"ALL OF THE CHEESE",
-          "payload":"PAYLOAD_MOVIE_ALL_CHEESE"
+          "payload":"PAYLOAD_CHEESE"
         }
       ]
     }

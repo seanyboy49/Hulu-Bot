@@ -7,7 +7,6 @@ var app = express();
 var sendMovieCarousel = require('./helper_functions/sendMovieCarousel');
 var sendCarouselFeedback = require('./helper_functions/sendCarouselFeedback');
 var sendGenrePrompt = require('./helper_functions/sendGenrePrompt');
-var confirmIndecision = require('./helper_functions/confirmIndecision');
 var cheesePicker = require('./helper_functions/cheesePicker');
 var sendMovie = require('./helper_functions/sendMovie');
 var sendWelcomePrompt = require('./helper_functions/sendWelcomePrompt');
@@ -16,6 +15,7 @@ var killConversation = require('./helper_functions/killConversation');
 var sendMediaPrompt = require('./helper_functions/sendMediaPrompt');
 var sendExperienceHulu = require('./helper_functions/sendExperienceHulu');
 var sendMainstreamOrIndie = require('./helper_functions/sendMainstreamOrIndie');
+var sendRecommendation = require('./helper_functions/sendRecommendation');
 
 
 // express set up
@@ -231,16 +231,17 @@ function processQuickReply(quickReply, senderId) {
       setTimeout(() => { cheesePicker(senderId) });
       break;
 
-
+      case 'PAYLOAD_CHEESE':
+      console.log("userData before recommendation", userData);
+      sendRecommendation(senderId, userData)
+      userData = {};
+      console.log("userData after recommendation", userData);
+      break;
 
 
 
       case 'PAYLOAD_MOVIE_CHEDDAR':
       sendMovie(senderId, "Ferris Bueller's Day Off", "High school senior Ferris Bueller decides to skip school on a spring day by faking an illness", "https://www.hulu.com/watch/922958", "http://www.brooklynvegan.com/files/2016/05/ferris-buellers-day-off-movie-poster-1986.jpg?w=630&h=425&zc=1&s=0&a=t&q=89");
-
-      setTimeout(function() {
-        sendMessage(senderId, {text: "Btw, when are we going to take Sean out to his welcome lunch?"});
-      },3000)
       break;
 
       }

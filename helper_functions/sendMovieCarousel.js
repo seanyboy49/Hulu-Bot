@@ -51,6 +51,32 @@ function sendMovieCarousel(recipientId) {
                   title: "Watch this!"
                 }
               ]
+            },
+            {
+              title: "A hulu original - The Path",
+              subtitle: "A family's struggle with faith, power and relationships in a cult.",
+              item_url: "https://www.hulu.com/the-path",
+              image_url: "https://ib4.hulu.com/show_key_art/26510?size=1600x600&region=US",
+              buttons: [
+                {
+                  type: "web_url",
+                  url: "https://www.hulu.com/the-path",
+                  title: "Watch this!"
+                }
+              ]
+            },
+            {
+              title: "Creed",
+              subtitle: "The son of Apollo Creed looks to Rocky Balboa for guidance in proving his might in the ring.",
+              item_url: "https://www.hulu.com/watch/999771",
+              image_url: "http://reveringthoughts.com/wp-content/uploads/2015/12/Creed-movie-review.jpg",
+              buttons: [
+                {
+                  type: "web_url",
+                  url: "https://www.hulu.com/watch/999771",
+                  title: "Watch this!"
+                }
+              ]
             }
           ]
         }
