@@ -137,7 +137,7 @@ var drama = {
 var suggestionArray = drama[media][preference][cheese];
 
 // Destructure vars from suggestion to be used in messageData
-var { title, subtitle, item_url, image_url } = suggestion;
+var { title, subtitle, item_url, image_url } = suggestionArray;
 
 
   var messageData = {
