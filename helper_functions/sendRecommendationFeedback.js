@@ -16,7 +16,7 @@ function sendRecommendationFeedback(recipientId) {
           "payload":"PAYLOAD_KILL"
         },
         {
-          "content_type":"text",
+          "content_type":"text", 
           "title":"Give me another one!",
           "payload":"PAYLOAD_CHEESE"
         }

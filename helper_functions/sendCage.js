@@ -57,7 +57,7 @@ function sendCage(recipientId) {
     }
   };
 
-  return messageData;
+  callSendAPI(messageData);
 }
 
 /*
