@@ -128,7 +128,7 @@ function receivedMessage(event) {
 
 
   // You may get a text or attachment but not both
-  var messageText = message.text;
+  message.text ? var messageText = message.text : return;
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
@@ -225,20 +225,20 @@ function processQuickReply(quickReply, senderId) {
       userData.preference="mainstream";
       userData.cheese=0;
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
-      setTimeout(() => { cheesePicker(senderId) });
+      setTimeout(() => { cheesePicker(senderId) }, 1000);
       break;
 
       case 'PAYLOAD_INDIE':
       userData.preference="indie";
       userData.cheese=0;
       sendMessage(senderId, {text: "Ok fantastic. I just need one more thing. Pinky swear."})
-      setTimeout(() => { cheesePicker(senderId) });
+      setTimeout(() => { cheesePicker(senderId) }, 1000);
       break;
 
       // Pass movieData object into sendRecommendation function
       case 'PAYLOAD_CHEESE':
       console.log( {userData} );
-      if (!userData.cheese === 2) {
+      if (userData.cheese < 2) {
         sendRecommendation(senderId, userData);
         setTimeout(()=> {sendRecommendationFeedback(senderId)} , 1500);
       } else {
