@@ -237,7 +237,7 @@ function processQuickReply(quickReply, senderId) {
 
       // Pass movieData object into sendRecommendation function
       case 'PAYLOAD_CHEESE':
-      console.console.log({userData.cheese});
+      console.log({userData.cheese});
       if (!userData.cheese === 2) {
         sendRecommendation(senderId, userData);
         setTimeout(()=> {sendRecommendationFeedback(senderId)} , 1500);
