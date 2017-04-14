@@ -296,7 +296,12 @@ function processMessageText(messageText, senderId) {
     case 'foreign':
     userData.genre = formattedMsg;
     sendMediaPrompt(senderId, formattedMsg);
-    break; 
+    break;
+
+    // joke generator
+    case 'tell me a joke':
+    sendJoke(senderId);
+    break;
   }
 }
 
