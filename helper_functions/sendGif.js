@@ -8,7 +8,7 @@ function sendGif(recipientId, gif_url) {
     },
     message: {
       attachment: {
-        type: "video",
+        type: "image",
         payload: {
           url: gif_url
         }
