@@ -264,7 +264,7 @@ function processMessageText(messageText, senderId) {
     break;
 
     case 'nicholas cage':
-    sendGif(senderId, "https://giphy.com/gifs/8e9eqlnQbzyFO/links")
+    sendGif(senderId, "https://media.giphy.com/media/8e9eqlnQbzyFO/giphy.gif")
     break;
   }
 }
