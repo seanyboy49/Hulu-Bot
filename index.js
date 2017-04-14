@@ -265,6 +265,8 @@ function processMessageText(messageText, senderId) {
 
     case 'nicholas cage':
     sendGif(senderId, "https://media.giphy.com/media/8e9eqlnQbzyFO/giphy.gif")
+    setTimeout(() => { sendMessage(senderId, { text: "Ah good choice! \nHere's a little something to get you your fix of Cage!"}) }, 1500)
+    setTimeout(() => { sendCage(senderId) }, 2000)
     break;
   }
 }
