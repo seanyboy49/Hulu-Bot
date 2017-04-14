@@ -134,7 +134,7 @@ var library = {
     }
   },
   // Action object
-  drama: {
+  action: {
     movie: {
       mainstream: [
         {

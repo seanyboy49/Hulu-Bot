@@ -2,10 +2,9 @@ var callSendAPI = require('./callSendAPI');
 
 // Quick Emotion Options
 function sendMainstreamOrIndie(recipientId, media) {
-  var currentDate = new Date();
 
   var validationMessages = {
-    tv: `'What are the 3 secrets to happiness? Puppies, a warm blanket, and the perfect TV series.' \n-Hulu-Bot, ${currentDate}' \n \nYes I just made up a quote. Whatever.`,
+    tv: `'What are the 3 secrets to happiness? Puppies, a warm blanket, and the perfect TV series.' \n-Hulu-Bot' \n \nYes I just made up a quote. Whatever.`,
     movie: "'The length of a film should be directly related to the endurance of the human bladder.' \n-Alfred Hitchcock, 1950 \n \nWise words. Wise man. Anywho..."
   }
 
