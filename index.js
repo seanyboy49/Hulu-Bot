@@ -269,21 +269,34 @@ function processMessageText(messageText, senderId) {
   var formattedMsg = messageText.toLowerCase().trim();
   switch(formattedMsg) {
 
+    // Start from top of the conversation tree
     case 'start over':
     userData = {};
     sendWelcomePrompt(senderId, name)
     break;
 
+    // Get actor details
     case 'nicholas cage':
     sendGif(senderId, "https://media.giphy.com/media/8e9eqlnQbzyFO/giphy.gif")
     setTimeout(() => { sendMessage(senderId, { text: "Ah good choice! \nHere's a little something to get you your fix of Cage!"}) }, 3000)
     setTimeout(() => { sendCage(senderId) }, 3500)
     break;
 
+    // Get TV show details
     case 'the path':
     sendMovie(senderId, "The Path", "A family's struggle with faith, power and relationships in a cult.", "https://www.hulu.com/the-path", "https://ib4.hulu.com/show_key_art/26510?size=1600x600&region=US")
     setTimeout(() => { sendSubscriptionPrompt(senderId) }, 1000)
     break;
+
+    // Search by genre
+    case 'comedy':
+    case 'drama':
+    case 'action':
+    case 'documentary':
+    case 'foreign':
+    userData.genre = formattedMsg;
+    sendMediaPrompt(senderId, formattedMsg);
+    break; 
   }
 }
 
