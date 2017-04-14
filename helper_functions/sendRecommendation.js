@@ -139,7 +139,7 @@ var library = {
       mainstream: [
         {
           title: "Spectre",
-          subtitle: "Bond faces an enemy who is closer than he knows."
+          subtitle: "Bond faces an enemy who is closer than he knows.",
           item_url: "https://www.hulu.com/watch/988103",
           image_url: "https://multiverseentertainment.files.wordpress.com/2015/11/spectre-banner.png "
         },
@@ -203,7 +203,7 @@ var library = {
       mainstream: [
         {
           title: "Under the Sea",
-          subtitle: "An underwater look at the diverse coastal regions of Southern Australia, New Guinea and the Indo-Pacific areas and the impact of global warming."
+          subtitle: "An underwater look at the diverse coastal regions of Southern Australia, New Guinea and the Indo-Pacific areas and the impact of global warming.",
           item_url: "https://www.hulu.com/watch/1051487",
           image_url: " http://www.hidefninja.com/wp-content/uploads/2010/04/IMAXUTS-1.png"
         },
@@ -267,7 +267,7 @@ var library = {
       mainstream: [
         {
           title: "Blue is the Warmest Color",
-          subtitle: "Adèle's life is changed when she meets Emma, a young woman with blue hair, who will allow her to discover desire and to assert herself as a woman."
+          subtitle: "Adèle's life is changed when she meets Emma, a young woman with blue hair, who will allow her to discover desire and to assert herself as a woman.",
           item_url: "https://www.hulu.com/watch/852603",
           image_url: "https://celluloidjunkie.files.wordpress.com/2013/10/blueisthewarmestcolor_banner.jpg?w=900&h=450"
         },
