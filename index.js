@@ -219,7 +219,8 @@ function processQuickReply(quickReply, senderId) {
 
       case 'PAYLOAD_LIVE':
       sendMessage(senderId, {text: "Yes, live TV is still a thing. \nFrom sports and news, shows and more, see what's On Demand and streaming now."})
-      setTimeout(() => { sendExperienceHulu(senderId), 1500 });
+      setTimeout(() => { sendExperienceHulu(senderId), 1000 });
+      setTimeout(() => { killConversation(senderId), 1700 });
       break;
 
       // Mainstream or Indie Prompt Feedback
@@ -259,6 +260,10 @@ function processMessageText(messageText, senderId) {
     case 'start over':
     userData = {};
     sendWelcomePrompt(senderId, name)
+    break;
+
+    case 'nicholas cage':
+    sendGif(senderId, "https://giphy.com/gifs/8e9eqlnQbzyFO/links")
     break;
   }
 }
