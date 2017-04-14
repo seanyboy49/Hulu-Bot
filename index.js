@@ -17,6 +17,7 @@ var sendExperienceHulu = require('./helper_functions/sendExperienceHulu');
 var sendMainstreamOrIndie = require('./helper_functions/sendMainstreamOrIndie');
 var sendRecommendation = require('./helper_functions/sendRecommendation');
 var sendRecommendationFeedback = require('./helper_functions/sendRecommendationFeedback');
+var sendGif = require('/helper_functions/sendGif');
 
 
 // express set up
