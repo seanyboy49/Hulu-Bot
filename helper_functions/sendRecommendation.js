@@ -96,7 +96,7 @@ var { genre, media, preference } = userData;
 //   };
 //
 //   callSendAPI(messageData);
-// }
+}
 
 
 module.exports = sendRecommendation;
