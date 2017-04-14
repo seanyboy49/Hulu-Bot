@@ -19,6 +19,7 @@ var sendRecommendation = require('./helper_functions/sendRecommendation');
 var sendRecommendationFeedback = require('./helper_functions/sendRecommendationFeedback');
 var sendGif = require('./helper_functions/sendGif');
 var sendCage = require('./helper_functions/sendCage');
+var sendSubscriptionPrompt = require('./helper_functions/sendSubscriptionPrompt');
 
 
 // express set up
@@ -247,10 +248,19 @@ function processQuickReply(quickReply, senderId) {
         sendRecommendation(senderId, userData);
         setTimeout(()=> {sendRecommendationFeedback(senderId)} , 1500);
       } else {
-        sendMessage(senderId, { text: "Hmm. Let's start over, shall we?"})
-        setTimeout(()=> {sendGenrePrompt(senderId)} , 1500)
+        sendMessage(senderId, { text: "Hmm. Let's start over, shall we?"});
+        setTimeout(()=> {sendGenrePrompt(senderId)} , 1500);
         userData = {};
       }
+      break;
+
+      // Opt in or out of Subscription
+      case 'PAYLOAD_OPT_IN':
+      sendMessage(senderId, { text: "Great! I'll let you know whenever new episodes are released. \nYou can opt out of any subscriptions by typing 'settings'."})
+      break;
+
+      case 'PAYLOAD_OPT_OUT':
+      sendMessage(senderId, { text: "No worries. \nYou can always tell me things like the following: \n \nThe name of an actor/actress \nYour favorite TV show or movie \nA movie or TV genre \nTell me a joke!"})
       break;
       }
 }
@@ -268,6 +278,11 @@ function processMessageText(messageText, senderId) {
     sendGif(senderId, "https://media.giphy.com/media/8e9eqlnQbzyFO/giphy.gif")
     setTimeout(() => { sendMessage(senderId, { text: "Ah good choice! \nHere's a little something to get you your fix of Cage!"}) }, 3000)
     setTimeout(() => { sendCage(senderId) }, 3500)
+    break;
+
+    case 'the path':
+    sendMovie(senderId, "The Path", "A family's struggle with faith, power and relationships in a cult.", "https://www.hulu.com/the-path", "https://ib4.hulu.com/show_key_art/26510?size=1600x600&region=US")
+    setTimeout(() => { sendSubscriptionPrompt(senderId) }, 1000)
     break;
   }
 }
