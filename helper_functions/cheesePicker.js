@@ -8,7 +8,7 @@ function cheesePicker(recipientId) {
     },
     message: {
       text: "Pick a cheese. 🧀",
-      metadata: "CONFIRM_CHEESEPICKER,
+      metadata: "CHEESEPICKER",
       quick_replies: [
         {
           "content_type":"text",
