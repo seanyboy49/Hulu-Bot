@@ -5,9 +5,7 @@ function sendRecommendation(recipientId, userData) {
 // Grab values from userData object with ES6 destructuring
 var { genre, media, preference } = userData;
 
-var suggestion = drama[media][preference][0]
 
-var { title, subtitle, item_url, image_url } = suggestion
 
 var drama = {
   movie: {
@@ -20,7 +18,7 @@ var drama = {
       },
       {
         title: "13 Hours: The Secret Soldiers of Benghazi",
-        subtitle: "Islmaic militants attack the U.S. Consulate in Benghazi, Libya.",
+        subtitle: "Islamic militants attack the U.S. Consulate in Benghazi, Libya.",
         item_url: "https://www.hulu.com/watch/1010449 ",
         image_url: "http://www.gmovieb.com/wp-content/uploads/2016/06/banner_2.jpg"
       }
@@ -59,6 +57,13 @@ var drama = {
     ]
   }
 }
+
+// Grab a single entry from the drama object
+var suggestion = drama[media][preference][0]
+
+
+// Destructure vars from suggestion to be used in messageData
+var { title, subtitle, item_url, image_url } = suggestion;
 
 
   var messageData = {
