@@ -237,12 +237,14 @@ function processQuickReply(quickReply, senderId) {
 
       // Pass movieData object into sendRecommendation function
       case 'PAYLOAD_CHEESE':
+      console.console.log({userData.cheese});
       if (!userData.cheese === 2) {
         sendRecommendation(senderId, userData);
         setTimeout(()=> {sendRecommendationFeedback(senderId)} , 1500);
       } else {
         sendMessage(senderId, { text: "Hmm. Let's start over, shall we?"})
         setTimeout(()=> {sendGenrePrompt(senderId)} , 1500)
+        userData = {};
       }
       break;
       }
