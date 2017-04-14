@@ -128,7 +128,8 @@ function receivedMessage(event) {
 
 
   // You may get a text or attachment but not both
-  message.text ? var messageText = message.text : return;
+  var messageText;
+  message.text ? messageText = message.text : return;
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
