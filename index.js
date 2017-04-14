@@ -153,6 +153,7 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       case 'PAYLOAD_KILL':
+      userData = {};
       killConversation(senderId);
       break;
 
@@ -256,6 +257,7 @@ function processMessageText(messageText, senderId) {
   switch(formattedMsg) {
 
     case 'start over':
+    userData = {};
     sendWelcomePrompt(senderId, name)
     break;
   }
