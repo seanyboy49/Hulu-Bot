@@ -221,9 +221,9 @@ function processQuickReply(quickReply, senderId) {
       break;
 
       case 'PAYLOAD_LIVE':
-      sendMessage(senderId, {text: "Yes, live TV is still a thing. \nFrom sports and news, shows and more, see what's On Demand and streaming now."})
+      sendMessage(senderId, {text: "Yes! 😄 \nChoose from sports and news, shows and more, see what's On Demand and streaming now with Experience Hulu."})
       setTimeout(() => { sendExperienceHulu(senderId), 1000 });
-      setTimeout(() => { killConversation(senderId), 1700 });
+      setTimeout(() => { killConversation(senderId), 3000 });
       break;
 
       // Mainstream or Indie Prompt Feedback
